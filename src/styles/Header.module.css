@@ -1,0 +1,168 @@
+.header {
+  width: 100%;
+  background-color: var(--primary);
+}
+.header_inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding: 24px 4vw;
+  box-sizing: content-box;
+}
+
+.header_logo {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  max-width: 420px;
+  aspect-ratio: 3;
+  position: relative;
+}
+
+.header_nav {
+  margin: 32px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header_nav ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_nav ul li {
+  margin: 0 16px;
+}
+.header_nav ul li a {
+  color: var(--light);
+  font-size: 1.8rem;
+  font-family: var(--font-en);
+  font-weight: 500;
+}
+
+.header_sns {
+  position: fixed;
+  right: 16px;
+  top: 16px;
+}
+
+ul.snsList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+ul.snsList li {
+  margin: 0 4px;
+}
+
+ul.snsList li a {
+  color: var(--light);
+  font-size: 2rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul.snsList li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.drawerBtn {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header_sns {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: 24px auto 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .header_inner {
+    padding: 8px 0;
+  }
+  .drawerBtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    color: var(--light);
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav.header_nav {
+    display: none;
+  }
+  .header_sns {
+    display: none;
+  }
+
+  .drawerInner {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    overflow-x: scroll;
+    background-color: var(--primary);
+  }
+
+  .drawerInnerContent {
+    padding: 20px 15px;
+  }
+  ul.drawerNav {
+    display: block;
+    list-style-type: none;
+    padding: 0 12px;
+  }
+  ul.drawerNav li {
+    margin: 0 0 4px;
+  }
+
+  ul.drawerNav li a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    letter-spacing: 0.05rem;
+    padding: 12px 6px;
+    color: var(--light);
+  }
+
+  .drawerLogo {
+    margin: 0 0 24px;
+    width: 100%;
+    aspect-ratio: 3;
+    position: relative;
+  }
+
+  .drawerNavSns {
+    margin: 24px 0 0 0;
+  }
+}
+
+.toTopBtn {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary);
+  right: 20px;
+  bottom: 20px;
+  z-index: 99998;
+  border-radius: 4px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}

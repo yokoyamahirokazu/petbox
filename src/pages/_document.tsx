@@ -21,6 +21,10 @@ const MyDocument = () => {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="robots" content="noindex" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;500&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <body>
         <Main />
