@@ -3,7 +3,9 @@
   --primary-shade: #008dcd;
   --primary-tint: #1aaaeb;
 
-  --secondary: #fff000;
+  --secondary: #006e1d;
+
+  --success: #13ba9e;
 
   --light: #fff7cc;
 
@@ -11,6 +13,8 @@
 
   --text-color: #37352f;
   --text-light: #808080;
+
+  --whtie: #ffffff;
 
   --bg-light: #f3f6f6;
   --bg-light-blue: #f2f7f9;

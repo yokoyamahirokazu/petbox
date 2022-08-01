@@ -17,7 +17,9 @@ const Items: React.FC<Props> = (props) => {
   return (
     <section>
       <div className={styles.itemList_inner}>
-        <h2 className={styles.headlineCenter}>NEW PRODUCTS</h2>
+        <div className={styles.headlineBox}>
+          <h2 className={styles.headlineCenter}>NEW PRODUCTS</h2>
+        </div>
         <ul className={styles.itemList}>
           {props.ItemData &&
             props.ItemData.map((item) => {
