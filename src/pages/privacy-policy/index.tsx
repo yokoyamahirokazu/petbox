@@ -1,13 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import type { BaaeItems } from "@/types";
-import "react-ig-feed/dist/index.css";
 
-type Props = {
-  ItemData: BaaeItems[];
-};
-
-const Privacy: NextPage<Props> = (props: any) => {
+const Privacy: NextPage = () => {
   return (
     <>
       <Head>
