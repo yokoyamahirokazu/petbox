@@ -22,7 +22,7 @@ export const useDraft = () => {
     if (router.isReady) {
       fetcher();
     }
-  }, [router.isReady]);
+  });
 
   return {
     data,

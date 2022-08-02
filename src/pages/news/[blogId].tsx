@@ -23,9 +23,13 @@ type DetailProps = {
 
 const Detail: NextPage<DetailProps> = (props) => {
   const router = useRouter();
+  if (router.isFallback) {
+    return;
+  }
+  // const router = useRouter();
 
-  const cotegoryLink = "/news/category/" + props.blog.category.id + "/page/1";
-  const cotegoryLinkName = props.blog.category.category + "の記事一覧を見る";
+  // const cotegoryLink = "/news/category/" + props.blog.category.id + "/page/1";
+  // const cotegoryLinkName = props.blog.category.category + "の記事一覧を見る";
 
   return (
     <>
@@ -43,8 +47,6 @@ const Detail: NextPage<DetailProps> = (props) => {
                   }
                   if (props.blog.category.category === "EVENT") {
                     return styles.catEvent;
-                  } else {
-                    return "";
                   }
                 })()}`}
               >

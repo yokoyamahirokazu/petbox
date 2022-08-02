@@ -17,6 +17,10 @@ type PageProps = {
 };
 
 const Page: NextPage<PageProps> = (props) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return;
+  }
   return (
     <>
       <section>
@@ -28,9 +32,8 @@ const Page: NextPage<PageProps> = (props) => {
             </h2>
             <Categories categories={props.categories} />
           </div>
-          {props.blogs.length === 0 ? (
-            <>記事がありません</>
-          ) : (
+          {props.blogs.length === 0 && <>記事がありません</>}
+          {props.blogs && (
             <ul className={styles.newsList}>
               {props.blogs.map((newsItem) => {
                 return (
@@ -45,14 +48,12 @@ const Page: NextPage<PageProps> = (props) => {
                       }
                       if (newsItem.category.category === "EVENT") {
                         return styles.catEvent;
-                      } else {
-                        return "";
                       }
                     })()}`}
                   >
                     <Link href="/news/[blogId]" as={`/news/${newsItem.id}`}>
                       <a>
-                        {newsItem.og_image ? (
+                        {newsItem.og_image && (
                           <div className={styles.newsImage}>
                             <Image
                               src={`${newsItem.og_image.url}?w=670`}
@@ -61,8 +62,6 @@ const Page: NextPage<PageProps> = (props) => {
                               objectFit={"cover"}
                             />
                           </div>
-                        ) : (
-                          <div></div>
                         )}
                         <div className={styles.newsTxt}>
                           <p className={styles.newsCategoryName}>

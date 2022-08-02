@@ -43,9 +43,9 @@ export type MicroCmsResponse<T> = MicroCMSListResponse<T>;
 export type ContentBase = MicroCMSListContent;
 
 export interface IMicroCmsImageType {
-  url: string;
-  height: number;
-  width: number;
+  url?: string;
+  height?: number;
+  width?: number;
 }
 
 export interface IDraftResponse {

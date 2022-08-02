@@ -50,8 +50,6 @@ const Page: NextPage<PageProps> = (props) => {
                       }
                       if (newsItem.category.category === "EVENT") {
                         return styles.catEvent;
-                      } else {
-                        return "";
                       }
                     })()}`}
                   >
