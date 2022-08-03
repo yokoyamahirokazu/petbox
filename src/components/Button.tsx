@@ -1,6 +1,7 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import styles from '@/styles/Button.module.css';
+import styles from "@/styles/Button.module.css";
+import { FiMail } from "react-icons/fi";
 
 interface Props {
   children?: string;
@@ -14,16 +15,28 @@ interface Props {
 }
 
 const Button: React.FC<Props> = (props, buttonStyle) => {
-  if (props.size === 'small') {
-    buttonStyle = `${styles.button} ${styles.small}`;
-  }
-  if (props.size === 'defalt' || !props.size) {
-    buttonStyle = `${styles.button} ${styles.defalt}`;
+  if (props.color === "light") {
+    if (props.size === "small") {
+      buttonStyle = `${styles.button} ${styles.small} ${styles.light}`;
+    }
+    if (props.size === "defalt" || !props.size) {
+      buttonStyle = `${styles.button} ${styles.defalt} ${styles.light}`;
+    }
+  } else {
+    if (props.size === "small") {
+      buttonStyle = `${styles.button} ${styles.small}`;
+    }
+    if (props.size === "defalt" || !props.size) {
+      buttonStyle = `${styles.button} ${styles.defalt}`;
+    }
   }
 
   return (
     <Link href={props.href} as={props.as}>
-      <a className={buttonStyle}>{props.children}</a>
+      <a className={buttonStyle}>
+        {props.icon === "contact" && <FiMail />}
+        {props.children}
+      </a>
     </Link>
   );
 };

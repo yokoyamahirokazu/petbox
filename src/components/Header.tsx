@@ -71,20 +71,21 @@ const Header: React.FC = () => {
               ))}
             </ul>
           </nav>
-          <div className={styles.header_sns}>
-            <ul className={styles.snsList}>
-              {snsItem.map((snsContent, index) => (
-                <li key={index}>
-                  <>
-                    <Link href={snsContent.url}>
-                      <a target={"_blank"}>{snsContent.icon}</a>
-                    </Link>
-                  </>
-                </li>
-              ))}
-            </ul>
-          </div>
+
           <DrawerMenu navItems={navItem} snsItems={snsItem} />
+        </div>
+        <div className={styles.header_sns}>
+          <ul className={styles.snsList}>
+            {snsItem.map((snsContent, index) => (
+              <li key={index}>
+                <>
+                  <Link href={snsContent.url}>
+                    <a target={"_blank"}>{snsContent.icon}</a>
+                  </Link>
+                </>
+              </li>
+            ))}
+          </ul>
         </div>
       </header>
       <ReturnTopButton />

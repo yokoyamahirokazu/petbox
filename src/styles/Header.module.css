@@ -1,6 +1,7 @@
 .header {
   width: 100%;
   background-color: var(--primary);
+  position: relative;
 }
 .header_inner {
   max-width: 1200px;
@@ -43,7 +44,7 @@
 }
 
 .header_sns {
-  position: fixed;
+  position: absolute;
   right: 16px;
   top: 16px;
 }
@@ -69,7 +70,7 @@ ul.snsList li a {
 }
 
 ul.snsList li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
 }
 .drawerBtn {
   display: none;
@@ -80,7 +81,8 @@ ul.snsList li a:hover {
     position: relative;
     right: auto;
     top: auto;
-    margin: 24px auto 0;
+    margin: auto 0;
+    padding: 0 0 24px 0;
   }
 }
 

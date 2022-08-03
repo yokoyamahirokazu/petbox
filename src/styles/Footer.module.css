@@ -1,10 +1,135 @@
 .footer {
-  background-color: var(--bg-light-blue);
-  padding: 32px 16px;
+  background-color: var(--primary);
+  padding: 4vw;
+  color: var(--light);
+}
+.footerFlex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 0 4vw;
+}
+.footerLogo {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 3;
+  margin: 0 4vw 0 0;
+  position: relative;
 }
 
-p.copy_right {
+.footerRight {
+  margin: 0;
+}
+
+.footerNav {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.footerNav ul {
+  display: block;
+  list-style: none;
+  margin: 0 0 0 4vw;
+}
+.footerNav ul:first-child {
+  margin: 0;
+}
+
+.footerNav ul li {
+  display: block;
+  margin: 0 0 16px;
+}
+.footerNav ul li a {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-family: var(--font-en);
+}
+.footerNav ul li a:hover {
+  text-decoration: underline;
+}
+.footerNav ul li ul {
+  margin: 16px 0 0;
+}
+
+.footerNav ul li ul li a {
+  font-weight: 300;
+}
+
+ul.snsList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0 0 32px 0;
+}
+ul.snsList li {
+  margin: 0 0 0 16px;
+}
+
+ul.snsList li:first-child {
+  margin: 0;
+}
+
+ul.snsList li a {
+  color: var(--light);
+  font-size: 2rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul.snsList li a:hover {
+  transform: scale(1.1);
+}
+
+.footer p.copy_right {
   font-size: 1rem;
   text-align: center;
   margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .footerFlex {
+    flex-wrap: wrap;
+  }
+  .footerLogo {
+    max-width: 320px;
+    margin: 0 auto 32px;
+    position: relative;
+  }
+
+  .footerNav {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 8vw 16px;
+  }
+  .footerFlex {
+    justify-content: flex-start;
+  }
+
+  .footerLogo {
+    max-width: 280px;
+  }
+
+  .footerNav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .footerNav ul {
+    width: 50%;
+    display: block;
+    margin: 0;
+  }
+
+  ul.snsList {
+    margin: 32px 0 32px 0;
+  }
 }
