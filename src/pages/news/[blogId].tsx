@@ -42,6 +42,10 @@ const Detail: NextPage<DetailProps> = (props) => {
       <div className={styles.postFlexLeft}>
         <div className={styles.postWrapper}>
           <div className={styles.postTitleFlex}>
+            <p className={styles.postDate}>
+              <span>{format(new Date(props.blog.publishedAt), "dd")}</span>
+              {format(new Date(props.blog.publishedAt), "MMM.yyyy")}
+            </p>
             <div className={styles.postTitleBox}>
               <p className={styles.postCategory}>
                 <span
@@ -62,10 +66,6 @@ const Detail: NextPage<DetailProps> = (props) => {
               </p>
               <h1 className={styles.postTitle}>{props.blog.title}</h1>
             </div>
-            <p className={styles.postDate}>
-              <span>{format(new Date(props.blog.publishedAt), "dd")}</span>
-              {format(new Date(props.blog.publishedAt), "MMM.yyyy")}
-            </p>
           </div>
           {props.blog.og_image && (
             <div

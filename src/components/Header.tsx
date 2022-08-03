@@ -16,10 +16,14 @@ import {
 const Header: React.FC = () => {
   const navItem = [
     { url: "/", name: "HOME" },
-    { url: "/news/", name: "NEWS" },
-    { url: "/terms/", name: "ABOUT US" },
-    { url: "/terms/", name: "ONLINE STORE" },
-    { url: "/terms/", name: "CONTACT" },
+    { url: "/news/page/1", name: "NEWS" },
+    { url: "/about", name: "ABOUT US" },
+    {
+      url: "https://petbox1976.official.ec/",
+      name: "ONLINE STORE",
+      target: "_blank",
+    },
+    { url: "/contact", name: "CONTACT" },
   ];
   const snsItem = [
     {
@@ -64,9 +68,15 @@ const Header: React.FC = () => {
             <ul>
               {navItem.map((navContent, index) => (
                 <li key={index}>
-                  <Link href={navContent.url}>
-                    <a>{navContent.name}</a>
-                  </Link>
+                  {navContent.target === "_blank" ? (
+                    <Link href={navContent.url}>
+                      <a target="_blank">{navContent.name}</a>
+                    </Link>
+                  ) : (
+                    <Link href={navContent.url}>
+                      <a>{navContent.name}</a>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

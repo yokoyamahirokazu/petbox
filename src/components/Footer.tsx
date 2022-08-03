@@ -19,9 +19,14 @@ const Footer: React.FC<Props> = (props) => {
   const thisYear = new Date().getFullYear();
   const navItemA = [
     { url: "/", name: "HOME" },
-    { url: "/terms/", name: "ABOUT US" },
-    { url: "/terms/", name: "ONLINE STORE" },
-    { url: "/terms/", name: "CONTACT" },
+    { url: "/about", name: "ABOUT US" },
+    {
+      url: "https://petbox1976.official.ec/",
+      name: "ONLINE STORE",
+      target: "_blank",
+    },
+    { url: "/contact", name: "CONTACT" },
+    { url: "/privacy-policy", name: "PRIVACY POLICY" },
   ];
   const navCtegory = [
     {
@@ -38,11 +43,6 @@ const Footer: React.FC<Props> = (props) => {
       url: "/news/category/[categoryId]/page/[id]",
       as: "/news/category/news/page/1",
       name: "NEWS",
-    },
-    {
-      url: "/news/page/[id]",
-      as: "/news/page/1",
-      name: "ALL",
     },
   ];
 
@@ -90,9 +90,15 @@ const Footer: React.FC<Props> = (props) => {
             <ul>
               {navItemA.map((navContent, index) => (
                 <li key={index}>
-                  <Link href={navContent.url}>
-                    <a>{navContent.name}</a>
-                  </Link>
+                  {navContent.target === "_blank" ? (
+                    <Link href={navContent.url}>
+                      <a target="_blank">{navContent.name}</a>
+                    </Link>
+                  ) : (
+                    <Link href={navContent.url}>
+                      <a>{navContent.name}</a>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

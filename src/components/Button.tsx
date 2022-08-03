@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import styles from "@/styles/Button.module.css";
 import { FiMail } from "react-icons/fi";
+import { IoSend } from "react-icons/io5";
 
 interface Props {
   children?: string;
@@ -12,6 +13,7 @@ interface Props {
   icon?: string;
   as?: string;
   variant?: string;
+  target?: string;
 }
 
 const Button: React.FC<Props> = (props, buttonStyle) => {
@@ -32,12 +34,27 @@ const Button: React.FC<Props> = (props, buttonStyle) => {
   }
 
   return (
-    <Link href={props.href} as={props.as}>
-      <a className={buttonStyle}>
-        {props.icon === "contact" && <FiMail />}
-        {props.children}
-      </a>
-    </Link>
+    <>
+      {props.type === "button" ? (
+        <button className={buttonStyle} type="submit">
+          <IoSend />
+          {props.children}
+        </button>
+      ) : props.target === "_blank" ? (
+        <Link href={props.href}>
+          <a className={buttonStyle} target="_blank">
+            {props.children}
+          </a>
+        </Link>
+      ) : (
+        <Link href={props.href} as={props.as}>
+          <a className={buttonStyle}>
+            {props.icon === "contact" && <FiMail />}
+            {props.children}
+          </a>
+        </Link>
+      )}
+    </>
   );
 };
 

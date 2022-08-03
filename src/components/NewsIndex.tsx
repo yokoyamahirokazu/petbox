@@ -7,6 +7,8 @@ import { IBlog, ICategory } from "@/types";
 import { format } from "date-fns";
 import Categories from "@/components/Categories";
 import PostCard from "@/components/PostCard";
+import Button from "@/components/Button";
+
 type NewsProps = {
   blogs: IBlog[];
   categories?: ICategory[];
@@ -30,6 +32,11 @@ const NewsIndex: React.FC<NewsProps> = (props) => {
             );
           })}
         </ul>
+        <div className={styles.buttonBoxCenter}>
+          <Button href="/news/page/[id]" as="/news/page/1">
+            VIEW MORE
+          </Button>
+        </div>
       </div>
     </section>
   );

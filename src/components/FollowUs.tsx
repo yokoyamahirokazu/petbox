@@ -43,14 +43,12 @@ const FollowUs: React.FC = () => {
           </li>
           {snsItem.map((snsContent, index) => (
             <li key={index}>
-              <>
-                <Link href={snsContent.url}>
-                  <a target={"_blank"}>
-                    {snsContent.icon}
-                    <p>{snsContent.name}</p>
-                  </a>
-                </Link>
-              </>
+              <Link href={snsContent.url}>
+                <a target={"_blank"}>
+                  {snsContent.icon}
+                  <p>{snsContent.name}</p>
+                </a>
+              </Link>
             </li>
           ))}
         </ul>

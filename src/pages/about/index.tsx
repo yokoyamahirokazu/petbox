@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import Head from "next/head";
 import styles from "@/styles/Style.module.css";
 import Image from "next/image";
-import GoogleMapReact from "google-map-react";
 
 const About: NextPage = () => {
   const defaultLatLng = {

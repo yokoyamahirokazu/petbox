@@ -14,12 +14,17 @@ const Thanks: NextPage = () => {
       <section>
         <div className={styles.section_inner}>
           <div className={styles.headlineBox}>
-            <h1 className={styles.headlineCenter}>CONTACT</h1>
+            <h1 className={styles.headlineCenter}>THANK YOU !</h1>
+          </div>
+          <div className={styles.contactContent}>
+            <p>
+              送信完了しました ！<br />
+              この度はお問い合わせいただき誠にありがとうございます。
+              <br />
+              お問い合わせ内容を確認の上、担当者よりご連絡させていただきます。
+            </p>
           </div>
         </div>
-      </section>
-      <section>
-        <div className={styles.section_inner}>thank you</div>
       </section>
     </>
   );

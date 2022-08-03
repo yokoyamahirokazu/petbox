@@ -15,7 +15,7 @@ const Home: NextPage<Props> = (props: any) => {
   return (
     <>
       <Head>
-        <title>PETBOX</title>
+        <title>PETBOX Since 1976</title>
         <meta name="description" content="PETBOX" />
       </Head>
 

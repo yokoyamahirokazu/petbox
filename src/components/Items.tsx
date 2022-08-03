@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Navigation } from "swiper";
 
 import styles from "@/styles/Style.module.css";
+import Button from "@/components/Button";
 
 type Props = {
   ItemData?: BaaeItems[];
@@ -110,6 +111,11 @@ const Items: React.FC<Props> = (props) => {
               );
             })}
         </ul>
+        <div className={styles.buttonBoxCenter}>
+          <Button href="https://petbox1976.official.ec/" target="_blank">
+            VIEW MORE
+          </Button>
+        </div>
       </div>
     </section>
   );

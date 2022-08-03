@@ -19,7 +19,7 @@ export default function sendmail(req, res) {
   const toHostMailData = {
     from: "petboxsendmail@gmail.com",
     to: "petboxsendmail@gmail.com",
-    subject: `【WEBサイトお問い合わせ】${req.body.name}様より`,
+    subject: `WEBサイトからお問い合わせ ${req.body.name}様より`,
     text: req.body.message + " | Sent from: " + req.body.email,
     html: `
       <p>【名前】</p>

@@ -43,6 +43,10 @@
   font-weight: 500;
 }
 
+.header_nav ul li a:hover {
+  text-decoration: underline;
+}
+
 .header_sns {
   position: absolute;
   right: 16px;
