@@ -40,17 +40,19 @@ const PostCard: React.FC<Props> = (props) => {
         ) : (
           <div></div>
         )}
-        <div className={styles.newsTxt}>
-          <p className={styles.newsCategoryName}>
-            {props.newsItem.category.category}
-          </p>
+        <div className={styles.newsSliderTxt}>
+          <div className={styles.newsTxt}>
+            <p className={styles.newsCategoryName}>
+              {props.newsItem.category.category}
+            </p>
 
-          <h3 className={styles.newsTitle}>{props.newsItem.title}</h3>
+            <h3 className={styles.newsTitle}>{props.newsItem.title}</h3>
+          </div>
+          <p className={styles.newsDate}>
+            <span>{format(new Date(props.newsItem.publishedAt), "dd")}</span>
+            {format(new Date(props.newsItem.publishedAt), "MMM.yyyy")}
+          </p>
         </div>
-        <p className={styles.newsDate}>
-          <span>{format(new Date(props.newsItem.publishedAt), "dd")}</span>
-          {format(new Date(props.newsItem.publishedAt), "MMM.yyyy")}
-        </p>
       </a>
     </Link>
   );

@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import Items from "@/components/Items";
+import NewsSlider from "@/components/NewsSlider";
 import NewsIndex from "@/components/NewsIndex";
 import type { BaaeItems, ICategory, IBlog } from "@/types";
 import { client } from "@/framework/client";
@@ -8,6 +9,7 @@ import { client } from "@/framework/client";
 type Props = {
   ItemData: BaaeItems[];
   blogs: IBlog[];
+  sliderData: IBlog[];
   categories: ICategory[];
 };
 
@@ -19,6 +21,7 @@ const Home: NextPage<Props> = (props: any) => {
         <meta name="description" content="PETBOX" />
       </Head>
 
+      <NewsSlider blogs={props.sliderData} />
       <NewsIndex blogs={props.blogs} categories={props.categories} />
 
       <Items ItemData={props.ItemData} />
@@ -37,6 +40,10 @@ export const getStaticProps = async () => {
     endpoint: "news",
     queries: { limit: 6 },
   });
+  const sliderData = await client.get({
+    endpoint: "news",
+    queries: { limit: 6, filters: "category[not_equals]news" },
+  });
 
   const categoryData = await client.get({ endpoint: "category" });
 
@@ -44,6 +51,7 @@ export const getStaticProps = async () => {
     props: {
       ItemData: ItemRaw.items,
       blogs: blogData.contents,
+      sliderData: sliderData.contents,
       categories: categoryData.contents,
     },
   };

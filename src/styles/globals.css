@@ -167,3 +167,10 @@ textarea {
   resize: vertical;
   min-height: 140px;
 }
+
+.swiper-slide {
+  opacity: 0.5;
+}
+.swiper-slide-active {
+  opacity: 1;
+}
