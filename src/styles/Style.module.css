@@ -928,3 +928,16 @@ ul.followUs li a:hover {
   font-size: 2.4rem;
   margin: 48px 0 16px;
 }
+
+.snsFlex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.snsFlexTweet {
+  width: 100%;
+  margin: 0 0 0 0;
+  max-width: 640px;
+}

@@ -25,6 +25,10 @@ const MyDocument = () => {
           href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;500&display=swap"
           rel="stylesheet"
         ></link>
+        <link
+          href="http://fonts.cdnfonts.com/css/bahnschrift"
+          rel="stylesheet"
+        ></link>
       </Head>
       <body>
         <Main />

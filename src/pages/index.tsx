@@ -3,6 +3,8 @@ import Head from "next/head";
 import Items from "@/components/Items";
 import NewsSlider from "@/components/NewsSlider";
 import NewsIndex from "@/components/NewsIndex";
+import Instagram from "@/components/Instagram";
+import Sns from "@/components/Sns";
 import type { BaaeItems, ICategory, IBlog } from "@/types";
 import { client } from "@/framework/client";
 
@@ -25,6 +27,7 @@ const Home: NextPage<Props> = (props: any) => {
       <NewsIndex blogs={props.blogs} categories={props.categories} />
 
       <Items ItemData={props.ItemData} />
+      <Sns />
     </>
   );
 };
