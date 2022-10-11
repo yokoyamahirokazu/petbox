@@ -26,6 +26,10 @@ const MyDocument = () => {
           rel="stylesheet"
         ></link>
         <link
+          href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap"
+          rel="stylesheet"
+        ></link>
+        <link
           href="http://fonts.cdnfonts.com/css/bahnschrift"
           rel="stylesheet"
         ></link>
