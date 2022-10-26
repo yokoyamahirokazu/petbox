@@ -127,7 +127,7 @@ const Detail: NextPage<DetailProps> = (props) => {
           <div className={styles.nextPreviewbox}>
             {props.prevEntry.id && (
               <>
-                <p className={styles.headline4}>PREVIW POST</p>
+                <p className={styles.headline4}>PREVIEW POST</p>
                 <PostCard newsItem={props.prevEntry} />{" "}
               </>
             )}

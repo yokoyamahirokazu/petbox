@@ -1,100 +1,102 @@
 import { NextPage } from "next";
-import { IBlog, ICategory } from "@/types";
 import { useRouter } from "next/dist/client/router";
-import { useDraft } from "@/hooks/useDraft";
 
 import { Share } from "@/components/Share";
-import { getContents } from "@/framework/blog";
+import { IBlog } from "@/types";
+import { getAllBlogs, getContents } from "@/framework/blog";
 import styles from "@/styles/Style.module.css";
 import Image from "next/image";
+import { format } from "date-fns";
+import PostContact from "@/components/PostContact";
+import { useDraft } from "@/hooks/useDraft";
 
-type DraftProps = {
-  blogs: IBlog[];
-  categories: ICategory[];
-};
-
-const Draft: NextPage<DraftProps> = (props) => {
+const Draft: NextPage = () => {
   const { data, isLoading } = useDraft();
-  const router = useRouter();
-
   if (isLoading || !data) {
     return;
   }
+
   return (
-    <>
-      <div className={styles.postPage}>
-        {data.blog.og_image && (
-          <div className={styles.postOgpImage}>
-            <picture>
-              <source
-                media="(min-width: 1160px)"
-                type="image/webp"
-                srcSet={`${data.blog.og_image.url}?w=820&fm=webp, ${data.blog.og_image.url}?w=1640&fm=webp 2x`}
-              />
-              <source
-                media="(min-width: 820px)"
-                type="image/webp"
-                srcSet={`${data.blog.og_image.url}?w=740&fm=webp, ${data.blog.og_image.url}?w=1480&fm=webp 2x`}
-              />
-              <source
-                media="(min-width: 768px)"
-                type="image/webp"
-                srcSet={`${data.blog.og_image.url}?w=728&fm=webp, ${data.blog.og_image.url}?w=1456&fm=webp 2x`}
-              />
-              <source
-                media="(min-width: 768px)"
-                type="image/webp"
-                srcSet={`${data.blog.og_image.url}?w=375&fm=webp, ${data.blog.og_image.url}?w=750&fm=webp 2x`}
-              />
-              <Image
-                src={`${data.blog.og_image?.url}?w=820&q=100`}
-                alt={data.blog.title}
-                layout={"fill"}
-                objectFit={"contain"}
-              />
-            </picture>
+    <div className={styles.postFlex}>
+      <div className={styles.postFlexLeft}>
+        <div className={styles.postWrapper}>
+          <div className={styles.postTitleFlex}>
+            <p className={styles.postDate}>
+              <span>{format(new Date(data.blog.publishedAt), "dd")}</span>
+              {format(new Date(data.blog.publishedAt), "MMM.yyyy")}
+            </p>
+            <div className={styles.postTitleBox}>
+              <p className={styles.postCategory}>
+                <span
+                  className={`${(() => {
+                    if (data.blog.category.category === "NEWS") {
+                      return styles.catNews;
+                    }
+                    if (data.blog.category.category === "DIARY") {
+                      return styles.catDiary;
+                    }
+                    if (data.blog.category.category === "EVENT") {
+                      return styles.catEvent;
+                    }
+                  })()}`}
+                >
+                  {data.blog.category.category}
+                </span>
+              </p>
+              <h1 className={styles.postTitle}>{data.blog.title}</h1>
+            </div>
           </div>
-        )}
-
-        <div className={styles.postContent}>
-          <h1 className={styles.title}>{data.blog.title}</h1>
-          <div className={styles.postMetaFlex}>
-            <Share id={data.blog.id} title={data.blog.title} />
-          </div>
-
-          <div
-            className={styles.postBody}
-            dangerouslySetInnerHTML={{ __html: data.body }}
-          ></div>
-
-          <div className={styles.postContactBox}>
-            <div className={styles.postContactBoxLogo}>
-              <div className={styles.postContactBoxLogoImg}>
+          {data.blog.og_image && (
+            <div
+              className={styles.postOgImage}
+              style={{
+                aspectRatio: `${
+                  data.blog.og_image.width / data.blog.og_image.height
+                }`,
+              }}
+            >
+              <picture>
+                <source
+                  media="(min-width: 1160px)"
+                  type="image/webp"
+                  srcSet={`${data.blog.og_image.url}?w=820&fm=webp, ${data.blog.og_image.url}?w=1640&fm=webp 2x`}
+                />
+                <source
+                  media="(min-width: 820px)"
+                  type="image/webp"
+                  srcSet={`${data.blog.og_image.url}?w=740&fm=webp, ${data.blog.og_image.url}?w=1480&fm=webp 2x`}
+                />
+                <source
+                  media="(min-width: 768px)"
+                  type="image/webp"
+                  srcSet={`${data.blog.og_image.url}?w=728&fm=webp, ${data.blog.og_image.url}?w=1456&fm=webp 2x`}
+                />
+                <source
+                  media="(min-width: 768px)"
+                  type="image/webp"
+                  srcSet={`${data.blog.og_image.url}?w=375&fm=webp, ${data.blog.og_image.url}?w=750&fm=webp 2x`}
+                />
                 <Image
-                  src="/images/rura_logo_blue.svg"
+                  src={`${data.blog.og_image?.url}?w=820&q=100`}
                   alt={data.blog.title}
                   layout={"fill"}
                   objectFit={"contain"}
                 />
-              </div>
-              <p>資料ダウンロード・お問い合わせはこちら</p>
+              </picture>
             </div>
-            <div className={styles.contactSectionLogoBtn}></div>
+          )}
+          <div className={styles.postContent}>
+            <div
+              className={styles.postBody}
+              dangerouslySetInnerHTML={{ __html: data.blog.body }}
+            ></div>
+            <Share id={data.blog.id} title={data.blog.title} />
           </div>
-          <Share id={data.blog.id} title={data.blog.title} />
         </div>
+        <PostContact />
       </div>
-    </>
+    </div>
   );
 };
 
-export async function getStaticProps() {
-  const { blogs, categories } = await getContents();
-  return {
-    props: {
-      blogs,
-      categories,
-    },
-  };
-}
 export default Draft;
