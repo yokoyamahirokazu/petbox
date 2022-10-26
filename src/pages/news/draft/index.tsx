@@ -1,9 +1,6 @@
 import { NextPage } from "next";
-import { useRouter } from "next/dist/client/router";
 
 import { Share } from "@/components/Share";
-import { IBlog } from "@/types";
-import { getAllBlogs, getContents } from "@/framework/blog";
 import styles from "@/styles/Style.module.css";
 import Image from "next/image";
 import { format } from "date-fns";
@@ -15,6 +12,8 @@ const Draft: NextPage = () => {
   if (isLoading || !data) {
     return;
   }
+
+  console.log(data.blog);
 
   return (
     <div className={styles.postFlex}>
