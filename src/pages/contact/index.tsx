@@ -33,6 +33,8 @@ const Contact: NextPage = () => {
     });
   };
 
+  console.log(errors);
+
   return (
     <>
       <Head>
@@ -55,15 +57,10 @@ const Contact: NextPage = () => {
                 <input
                   type="text"
                   name="name"
-                  {...register("name", { required: true, maxLength: 80 })}
+                  {...register("name", { required: true })}
                 />
-                {errors.name?.required && (
+                {errors.name && (
                   <p className={styles.errorText}>この質問は必須項目です</p>
-                )}
-                {errors.name?.maxLength && (
-                  <p className={styles.errorText}>
-                    80文字以内で記入してください
-                  </p>
                 )}
               </div>
               <div className={styles.formContentBox}>
@@ -78,13 +75,8 @@ const Contact: NextPage = () => {
                     pattern: /^\S+@\S+$/i,
                   })}
                 />
-                {errors.email?.required && (
+                {errors.email && (
                   <p className={styles.errorText}>この質問は必須項目です</p>
-                )}
-                {errors.email?.pattern && (
-                  <p className={styles.errorText}>
-                    メールアドレスを入力してください
-                  </p>
                 )}
               </div>
 
@@ -96,7 +88,7 @@ const Contact: NextPage = () => {
                   name="message"
                   {...register("message", { required: true })}
                 ></textarea>
-                {errors.message?.required && (
+                {errors.message && (
                   <p className={styles.errorText}>この質問は必須項目です</p>
                 )}
               </div>
